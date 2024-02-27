@@ -1,0 +1,39 @@
+// Import json into database
+mongoimport boxoffice.json -d movieStats -c movies --jsonArray
+
+// Find movies with runtime<100 and rating>9.2
+db.movies.find({$and:[{"meta.rating":{$gt:9.2}},{"meta.runtime":{$lt:100}}]})
+
+// Movies with genre as drama and action.
+db.movies.find({$or:[{genre:'drama'},{genre:'action'}]})
+
+// Movies where visitors exceeded expected visitors
+db.movies.find({$expr:{$gt:["$visitors","$expectedVisitors"]}})
+
+
+
+
+
+{
+    name: 'Sam',
+    hobbies: [ { title: 'Playing Baseball' }, { title:'Gymming' } ],
+    phone: '1234537',
+    age: 25,
+    isSporty: true
+},
+{
+    name: 'Nishant',
+    hobbies: [ { title: 'Playing Videogame' }, { title:'Watching Anime' } ],
+    phone: '1234538',
+    age: 21,
+    isSporty: false,
+    address:
+    [
+        {
+            street:"main street"
+        },
+        {
+            street:"second street"
+        }      
+    ]
+}

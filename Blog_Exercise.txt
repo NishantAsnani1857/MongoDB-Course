@@ -1,0 +1,12 @@
+
+//Creating Users
+db.users.insertOne({name:"Nishant",age:20,email:"asnaninishant2@gmail.com"})
+db.users.insertOne({name:"Max",age:30,email:"max2@gmail.com"})
+
+
+
+
+//Creating Posts
+db.posts.insertOne({title:"My post",text:"This is my first post",tags:["new"],creator:ObjectId('65cb4c024ebf99db3eb4d204'),
+ comments:{text:"This is my first comment",author:ObjectId('65cb4c024ebf99db3eb4d204')}})
+

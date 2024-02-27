@@ -1,0 +1,13 @@
+// Import Json dataset in Mongo database
+mongoimport boxoffice-extended.json -d movieStats -c movies2 --jsonArray
+
+
+// Movies with two genre
+db.movies2.find({genre:{$size:2}})
+
+// Movies whre aired year is 2018
+db.movies2.find({"meta.aired":2018})
+
+
+// Movies with ratings>8 and ratings<10
+db.movies2.find({ratings:{$elemMatch:{$gt:8,$lt:10}}})
